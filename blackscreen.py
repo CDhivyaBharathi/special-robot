@@ -3,7 +3,7 @@ import numpy as np
   
 
 video = cv2.VideoCapture(0) 
-image = cv2.imread("bg.jpeg") 
+image = cv2.imread("bg.jpg") 
   
 while True: 
     
@@ -16,7 +16,7 @@ while True:
     u_black = np.array([104 , 153 , 70])
     l_black = np.array([30 , 30 , 0])
    
-    mask = cv2.inRage(frame , l_black , u_black)
+    mask = cv2.inRange(frame , l_black , u_black)
     res = cv2.bitwise_and(frame , frame , mask = mask)
 
     f = frame - res 
@@ -28,5 +28,3 @@ while True:
 
 video.release() 
 cv2.destroyAllWindows() 
-
-
